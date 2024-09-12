@@ -7,6 +7,7 @@
 body {
 	width: 100vw; /* 100% de la largeur de la fenêtre */
 	display: flex;
+	justify-content: center;
 	/* cursor: url('./assets/HANDSCURSOR2.cur'), auto; */
-	background-color: rgb(42, 42, 42);
+	background-color: white;
 }
