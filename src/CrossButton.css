@@ -1,6 +1,36 @@
+/* bouton supprimer */
+
+.delete-button{
+	position: relative;
+	border-radius: 200%;
+	background-color: rgb(115, 115, 115);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 0.5px 10px rgb(111, 111, 111);
+}
+
+.delete-button div {
+	width: 5%;
+	height: 70%;
+	position: absolute;
+	background-color: rgb(231, 231, 231);
+	border-radius: 10rem;
+}
+
+.delete-button .a{
+	transform: rotate(45deg);
+}
+
+.delete-button .b{
+	transform: rotate(-45deg);
+}
+
+/* bouton ajouter */
+
 .add-button{
 	position: relative;
-	border-radius: 10%;
+	border-radius: 30%;
 	background-color: rgb(115, 115, 115);
 	display: flex;
 	justify-content: center;
@@ -10,8 +40,12 @@
 
 .add-button div {
 	width: 5%;
-	height: 80%;
+	height: 70%;
 	position: absolute;
 	background-color: rgb(231, 231, 231);
 	border-radius: 10rem;
+}
+
+.add-button .a{
+	transform: rotate(90deg);
 }

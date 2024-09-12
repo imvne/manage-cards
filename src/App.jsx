@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import './App.css'
-import './CrossButton.css'
 import CrossButton from './CrossButton';
+import './CrossButton.css'
 
 export default function App() {
 
   return (
     <>
-    <CrossButton buttonSize={'150px'} aRotation={'90deg'} bRotation={'0deg'}/>
+    <CrossButton addOrDeleteStyle={'delete'} buttonSize={'50px'}/>
+    <CrossButton addOrDeleteStyle={'add'} buttonSize={'50px'}/>
     </>
   )
 }
