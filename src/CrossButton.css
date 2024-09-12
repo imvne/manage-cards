@@ -1,8 +1,8 @@
-/* bouton supprimer */
+/* paramètres communs des deux boutons */
 
-.delete-button{
+.delete-button, .add-button{
+	margin: 1rem;
 	position: relative;
-	border-radius: 200%;
 	background-color: rgb(115, 115, 115);
 	display: flex;
 	justify-content: center;
@@ -10,12 +10,22 @@
 	box-shadow: 0px 0.5px 10px rgb(111, 111, 111);
 }
 
-.delete-button div {
+.delete-button:hover, .add-button:hover{
+	cursor: pointer;
+}
+
+.delete-button div, .add-button div {
 	width: 5%;
 	height: 70%;
 	position: absolute;
 	background-color: rgb(231, 231, 231);
 	border-radius: 10rem;
+}
+
+/* forme et rotation de la croix du bouton supprimer */
+
+.delete-button{
+	border-radius: 200%;
 }
 
 .delete-button .a{
@@ -26,24 +36,10 @@
 	transform: rotate(-45deg);
 }
 
-/* bouton ajouter */
+/* forme et rotation de la croix du bouton ajouter */
 
 .add-button{
-	position: relative;
-	border-radius: 30%;
-	background-color: rgb(115, 115, 115);
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-shadow: 0px 0.5px 10px rgb(111, 111, 111);
-}
-
-.add-button div {
-	width: 5%;
-	height: 70%;
-	position: absolute;
-	background-color: rgb(231, 231, 231);
-	border-radius: 10rem;
+	border-radius: 20%;
 }
 
 .add-button .a{
