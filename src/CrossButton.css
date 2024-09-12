@@ -1,0 +1,17 @@
+.add-button{
+	position: relative;
+	border-radius: 10%;
+	background-color: rgb(115, 115, 115);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 0px 0.5px 10px rgb(111, 111, 111);
+}
+
+.add-button div {
+	width: 5%;
+	height: 80%;
+	position: absolute;
+	background-color: rgb(231, 231, 231);
+	border-radius: 10rem;
+}
