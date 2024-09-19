@@ -3,10 +3,10 @@ export default function CrossButton({className, addOrDeleteStyle, buttonSize, ha
 	return (
 		
 		<div onClick={handleOnClick} className={`${addOrDeleteStyle}-button ${className}`} style={{width: buttonSize, height: buttonSize}}>
-			
-		  <div className='a'></div>
-		  <div className='b'></div>
-		  
+			<div className="cross">
+				<div className='a'></div>
+		  		<div className='b'></div>
+			</div>
 		</div>
 	)
 }

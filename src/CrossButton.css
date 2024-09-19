@@ -1,8 +1,6 @@
 /* paramètres communs des deux boutons */
 
 .delete-button, .add-button{
-	margin: 1rem;
-	position: relative;
 	background-color: rgb(115, 115, 115);
 	display: flex;
 	justify-content: center;
@@ -10,11 +8,20 @@
 	box-shadow: 0px 0.5px 10px rgb(111, 111, 111);
 }
 
-.delete-button:hover, .add-button:hover{
+.cross {
+	height: 90%;
+	width: 90%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cross:hover{
 	cursor: pointer;
 }
 
-.delete-button div, .add-button div {
+.cross div {
 	width: 5%;
 	height: 70%;
 	position: absolute;
@@ -22,11 +29,17 @@
 	border-radius: 10rem;
 }
 
-/* forme et rotation de la croix du bouton supprimer */
+/* forme des boutons */
 
 .delete-button{
 	border-radius: 200%;
 }
+
+.add-button{
+	border-radius: 20%;
+}
+
+/* rotation des croix des boutons */
 
 .delete-button .a{
 	transform: rotate(45deg);
@@ -34,12 +47,6 @@
 
 .delete-button .b{
 	transform: rotate(-45deg);
-}
-
-/* forme et rotation de la croix du bouton ajouter */
-
-.add-button{
-	border-radius: 20%;
 }
 
 .add-button .a{
