@@ -21,25 +21,26 @@
 
 .cards-container {
 	width: 50vw;
-	max-height: 50vw;
+	/* max-height: 50vw; */
 	display: flex;
 	flex-direction: column;
 	border: 1px solid rgb(51, 180, 135);
 	border-radius: 20px;
 	align-items: center;
 	justify-content: flex-start;
+	padding: 2vw;
 }
 
 .card{
 	position: relative;
-	width: 91%;
-	min-height: 13vw;
+	width: 100%;
+	min-height: 6vw;
 	display: flex;
 	flex-direction: column;
 	background-color: white;
 	border: 0.5px solid rgb(189, 189, 189);
 	border-radius: 10px;
-	margin-top: 2vw;
+	padding: 2vw;
 	transition: transform 0.2s ease;
 	flex-shrink: 0;
 	/* transition: opacity 1s ease */
@@ -54,12 +55,13 @@
 	right: 0;
 }
 
-.card input {
-	
+.card-input {
 	outline: none;
 	border: 1px dashed grey;
-	margin: 3vw;
-	width: 80%;
-	height: 80%;
+	width: 100%;
+	min-height: 100%;
 	font-size: 2vw;
+	font-family: "Ubuntu", sans-serif;
+	font-weight: 100;
+	box-sizing: border-box;
 }
