@@ -1,11 +1,11 @@
 /* paramètres communs des deux boutons */
 
 .delete-button, .add-button{
-	background-color: rgb(115, 115, 115);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	box-shadow: 0px 0.5px 10px rgb(111, 111, 111);
+	background-color: rgb(115, 115, 115);
+	box-shadow: 0px 0.5px 10px rgb(125, 125, 125);
 }
 
 .cross {
@@ -51,4 +51,11 @@
 
 .add-button .a{
 	transform: rotate(90deg);
+}
+
+/* couleur arrière plan si le bouton est désactivé */
+
+.button-off {
+	background-color: rgb(210, 210, 210);
+	box-shadow: none;
 }
