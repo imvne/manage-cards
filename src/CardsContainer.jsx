@@ -2,7 +2,7 @@ import { useState } from 'react';
 import CrossButton from './CrossButton';
 import './CrossButton.css'
 
-export default function CardsContainer({className, cardsKeys, setCardsKeys, cardsContainerHeight}){
+export default function CardsContainer({className, cards, setCards, cardsContainerHeight, handleChange}){
 	const [cardToDelete, setCardToDelete] = useState(null)
 	
 	const handleDeleteButtonClick = (cardToDelete, event) => {
@@ -13,25 +13,55 @@ export default function CardsContainer({className, cardsKeys, setCardsKeys, card
 		cardElement.style.transform = "scale(00%)"
 		
 		setTimeout(() => {
-			setCardsKeys(cardsKeys.filter(card => card!== cardToDelete))
+			setCards(cards.filter(card => card.key!== cardToDelete.key))
 		}, 300)
 		
 	}
 	
+	const handleCardHeightChange = (cardKey) => {
+		const cardElement = document.querySelector(`.card-${cardKey}`);
+		const newHeight = cardElement ? cardElement.getBoundingClientRect().height : "14vw";
+		
+		console.log(newHeight)
+		setCards(previousCards => 
+			previousCards.map(card => 
+			card.key === cardKey ? { ...card, height: newHeight } : card )
+		);
+	}
+
+	const handleCardContent = (event, cardKey) => {
+		const textChanging = event.target.innerText;
+		
+		console.log(textChanging)
+		setCards(previousCards => 
+			previousCards.map(card => 
+			card.key === cardKey ? { ...card, content: textChanging } : card )
+		);
+		
+		
+	};
 	
 	return (
-		<div className={className} style={{height: cardsContainerHeight}}>
+		<div 
+			className={className} 
+			style={{height: cardsContainerHeight}}
+		>
 		
-			{cardsKeys.map((card) => {return (
-				
-				<div key={card} className="card" 
+			{cards.map((card) => {return (
+				<div key={card.key} className={`card card-${card.key}`} 
 				onMouseEnter={() => {setCardToDelete(card)}}
 				onMouseLeave={() => {setCardToDelete(null)}}
 				>
 					
-					<p>card
-						
-					</p>
+					<div 
+						className='card-input' 
+						contentEditable="true"
+						onInput={(event) => {
+							handleCardHeightChange(card.key);
+							handleCardContent(event, card.key)
+						}}
+					>
+					</div>
 					
 					{
 						cardToDelete === card &&
