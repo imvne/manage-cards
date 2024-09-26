@@ -2,13 +2,27 @@ import { useState } from 'react'
 import './App.css'
 import CrossButton from './CrossButton';
 import CardsContainer from './CardsContainer';
+import PrintMode from "./PrintMode"
+import ToggleButton from './toggleButton.jsx';
+import EditMode from './EditMode.jsx';
 
 export default function App() {
+	const [printModeOn, setPrintModeOn] = useState(false)
 	const [cards, setCards] = useState([]) // {key : "hbkve", heigth: "", content: ""}
 	const [addButtonOn, setAddButtonOn] = useState(true)
 	const [cardToDelete, setCardToDelete] = useState(null)
 	const [allCardsHeight, setAllCardsHeight] = useState(0)
 	const cardsContainerHeight = 300
+	
+	const handleToggleClick	= () => { // is print or 
+		//return
+		
+		if(printModeOn === false){
+			setPrintModeOn(true)
+		} else if (printModeOn === true){
+			setPrintModeOn(false)
+		}
+	}
 	
 	console.log(`total hauteur : ${allCardsHeight}`)
 	console.log(cards)
@@ -44,7 +58,6 @@ export default function App() {
 		
 	};
 	
-	
 	const handleDeleteButtonClick = (cardToDelete, event) => {
 		console.log('handle DeleteButtonClick')
 		const cardElement = event.target.closest('.card')
@@ -61,7 +74,6 @@ export default function App() {
 		cardsContainerHeight - allCardsHeight > 59.5 ? setAddButtonOn(true) : setAddButtonOn(false)
 
 	}
-	
 	
 	const handleAddButtonClick = () => {
 		console.log('handle AddButtonClick')
@@ -81,8 +93,28 @@ export default function App() {
 		
 	<>
 	
+		<ToggleButton 
+			toggleOffText={'Edit mode'} 
+			toggleOnText={'Print mode'} 
+			toggleOn={printModeOn} 
+			handleClick={handleToggleClick}
+		/>
 		
-		<div 
+		{
+			printModeOn ? (
+				<PrintMode>
+			
+				</PrintMode>
+			) : (
+				<EditMode>
+					
+				</EditMode>
+			)
+		}
+	
+		
+		
+		{/* <div 
 			className={"cards-container"} 
 			style={{height: `${cardsContainerHeight}px`}}
 		>
@@ -136,7 +168,7 @@ export default function App() {
 		>
 			{addButtonOn}
 		
-		</button>
+		</button> */}
 	
 	</>
 	
