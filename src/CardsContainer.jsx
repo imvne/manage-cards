@@ -3,43 +3,32 @@ import CrossButton from './CrossButton';
 import './CrossButton.css'
 
 export default function CardsContainer({className, cards, setCards, cardsContainerHeight, setAllCardsHeight, height, allCardsHeight, setAddButton}){
-	const [cardToDelete, setCardToDelete] = useState(null)
+
 	
-	const handleDeleteButtonClick = (cardToDelete, event) => {
-		
-		const cardElement = event.target.closest('.card')
-		cardElement.style.transform = "scale(00%)"
-		
-		setTimeout(() => {
-			setCards(cards.filter(card => card.key!== cardToDelete.key))
-		}, 300)
-		
-		setAllCardsHeight(previousHeightTotal => 
-			cards.map(card => 
-			card.key === cardToDelete.key && (previousHeightTotal - card.height, console.log(typeof card.height)) )
-		);
-		
-		
-		
-		if((height - allCardsHeight) > 59.5 ){
-			setAddButton("on")
-		} else {
-			setAddButton("off")
-		}
-	}
+	console.log(`total hauteur : ${allCardsHeight}`)
+	console.log(cards)
 	
 	const handleCardHeightChange = (cardKey) => {
+		console.log('handle CardHeightChange')
 		const cardElement = document.querySelector(`.card-${cardKey}`);
 		const newHeight = cardElement ? cardElement.getBoundingClientRect().height : "14vw";
 		
-		console.log(newHeight)
+		console.log(`nouvelle hauteur ${newHeight}`)
 		setCards(previousCards => 
 			previousCards.map(card => 
-			card.key === cardKey ? { ...card, height: newHeight } : card )
+			card.key === cardKey ? (
+				
+				setAllCardsHeight(previousHeightTotal => ((previousHeightTotal + newHeight - card.height), console.log(previousHeightTotal, card.height, newHeight))),
+				{ ...card, height: newHeight }
+				
+				) : card )
 		);
+		
+		cardsContainerHeight - allCardsHeight > 59.5 ? setAddButtonOn(true) : setAddButtonOn(false)
 	}
 
 	const handleCardContent = (event, cardKey) => {
+		console.log('handle CardContent')
 		const textChanging = event.target.innerText;
 		
 		console.log(textChanging)
@@ -50,10 +39,47 @@ export default function CardsContainer({className, cards, setCards, cardsContain
 		
 	};
 	
+	
+	const handleDeleteButtonClick = (cardToDelete, event) => {
+		console.log('handle DeleteButtonClick')
+		const cardElement = event.target.closest('.card')
+		cardElement.style.transform = "scale(00%)"
+		
+		
+		
+		setTimeout(() => {
+			setCards(cards.filter(card => card.key!== cardToDelete.key))
+		}, 300)
+		
+		setAllCardsHeight(previousHeightTotal => previousHeightTotal - cardToDelete.height);
+		
+		cardsContainerHeight - allCardsHeight > 59.5 ? setAddButtonOn(true) : setAddButtonOn(false)
+
+	}
+	
+	
+	const handleAddButtonClick = () => {
+		console.log('handle AddButtonClick')
+		if(cardsContainerHeight - allCardsHeight > 59.5) {
+			setAddButtonOn(true)
+			
+			setCards(previousCards => [...previousCards, {key : crypto.randomUUID(), height: 59.5, content: ""}])
+			setAllCardsHeight(previousHeight => previousHeight + 59.5)
+			
+		} else {
+			setAddButtonOn(false)
+		}
+		
+	}
+	
 	return (
+		
+	<>
+	
+		
 		<div 
-			className={className} 
-			style={{height: cardsContainerHeight}}
+			className={"cards-container"} 
+			style={{height: `${cardsContainerHeight}px`}}
 		>
 		
 			{cards.map((card) => {return (
@@ -62,15 +88,16 @@ export default function CardsContainer({className, cards, setCards, cardsContain
 				onMouseLeave={() => {setCardToDelete(null)}}
 				>
 					
-					<div 
+					<textarea 
+						type='text'
 						className='card-input' 
 						contentEditable="true"
-						onInput={(event) => {
+						onChange={(event) => {
 							handleCardHeightChange(card.key);
 							handleCardContent(event, card.key)
 						}}
 					>
-					</div>
+					</textarea>
 					
 					{
 						cardToDelete === card &&
@@ -87,5 +114,26 @@ export default function CardsContainer({className, cards, setCards, cardsContain
 			)})}	
 		
 		</div>
+		
+		<CrossButton
+			className={"add-card-button"}
+			addOrDeleteStyle={'add'} 
+			buttonSize={'30px'} 
+			handleOnClick={handleAddButtonClick}
+			addButtonOn={addButtonOn}
+		/>
+		
+		<button 
+			style={{height: "20px", width: "60px"}}
+			onClick={() => {
+				addButtonOn ? setAddButton("off") : setAddButton("on")
+			}}
+		>
+			{addButtonOn}
+		
+		</button>
+	
+	</>
+	
 	)
 }
