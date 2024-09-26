@@ -2,20 +2,30 @@ import { useState } from 'react';
 import CrossButton from './CrossButton';
 import './CrossButton.css'
 
-export default function CardsContainer({className, cards, setCards, cardsContainerHeight, handleChange}){
+export default function CardsContainer({className, cards, setCards, cardsContainerHeight, setAllCardsHeight, height, allCardsHeight, setAddButton}){
 	const [cardToDelete, setCardToDelete] = useState(null)
 	
 	const handleDeleteButtonClick = (cardToDelete, event) => {
 		
 		const cardElement = event.target.closest('.card')
-		
-		// cardElement.style.opacity = "0%"
 		cardElement.style.transform = "scale(00%)"
 		
 		setTimeout(() => {
 			setCards(cards.filter(card => card.key!== cardToDelete.key))
 		}, 300)
 		
+		setAllCardsHeight(previousHeightTotal => 
+			cards.map(card => 
+			card.key === cardToDelete.key && (previousHeightTotal - card.height, console.log(typeof card.height)) )
+		);
+		
+		
+		
+		if((height - allCardsHeight) > 59.5 ){
+			setAddButton("on")
+		} else {
+			setAddButton("off")
+		}
 	}
 	
 	const handleCardHeightChange = (cardKey) => {
@@ -37,7 +47,6 @@ export default function CardsContainer({className, cards, setCards, cardsContain
 			previousCards.map(card => 
 			card.key === cardKey ? { ...card, content: textChanging } : card )
 		);
-		
 		
 	};
 	

@@ -55,7 +55,7 @@
 
 /* couleur arrière plan si le bouton est désactivé */
 
-.button-off {
+.add-button .button-off {
 	background-color: rgb(210, 210, 210);
 	box-shadow: none;
 }

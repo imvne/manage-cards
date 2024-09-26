@@ -1,10 +1,11 @@
-export default function CrossButton({className, addOrDeleteStyle, buttonSize, handleOnClick, onOrOff}){
+export default function CrossButton({className, addOrDeleteStyle, buttonSize, handleOnClick, addButtonOn}){
+	
 	
 	return (
 		
 		<div 
 		onClick={handleOnClick} 
-		className={`${addOrDeleteStyle}-button ${className} button-${onOrOff}`} 
+		className={`${addOrDeleteStyle}-button ${className} button-${addButtonOn ? "on" : "off"}`} 
 		style={{width: buttonSize, height: buttonSize}}>
 			
 			<div className="cross">
