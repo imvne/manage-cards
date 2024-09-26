@@ -1,7 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
-	/* box-sizing: border-box; */
+	box-sizing: border-box;
 }
 
 body {
@@ -10,4 +10,12 @@ body {
 	justify-content: center;
 	/* cursor: url('./assets/HANDSCURSOR2.cur'), auto; */
 	background-color: white;
+}
+
+
+#root{
+	height: 100%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
 }
