@@ -12,25 +12,53 @@
 	width: 40%;
 	text-align: center;
 	font-family: "Ubuntu", sans-serif;
-	color: rgb(113, 113, 113);
 	transition: font-size 0.3s ease;
 }
+
+	.text-not-chosen{
+		color: rgb(113, 113, 113);
+		font-weight: 400;
+		font-size: 16px
+	}
+	
+	.right-text-chosen{
+		color: rgb(137, 184, 119);
+		font-weight: 500;
+		font-size: 16.5px;
+	}
+	
+	.left-text-chosen{
+		color: rgb(100, 100, 156);
+		font-weight: 500;
+		font-size: 16.5px;
+	}
 
 .toggle-rectangle{
 	height: 4vw;
 	width: 8vw;
 	border-radius: 80vw;
-	background-color: rgb(185, 185, 185);
 	display: flex;
 	padding: 0.6vw;
 	transition: background-color 0.3s ease;
 }
 
-.toggle-circle{
-	height: 100%;
-	width: 40%;
-	border-radius: 80vw;
-	background-color: rgb(255, 255, 255);
-	transition: transform 0.3s ease;
-	cursor: pointer;
-}
+	.toggle-on-rectangle{
+		background-color: rgb(159, 193, 147);
+	}
+	
+	.toggle-off-rectangle{
+		background-color: rgb(99, 99, 124);
+	}
+
+	.toggle-circle{
+		height: 100%;
+		width: 40%;
+		border-radius: 80vw;
+		background-color: rgb(255, 255, 255);
+		transition: transform 0.3s ease;
+		cursor: pointer;
+	}
+
+	.toggle-on-circle{
+		transform: translate(140%);
+	}
