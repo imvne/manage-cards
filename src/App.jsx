@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import './styles/App.css'
 import CrossButton from './CrossButton';
 import CardsContainer from './CardsContainer';
 import PrintMode from "./PrintMode"
@@ -14,6 +14,95 @@ export default function App() {
 	const [allCardsHeight, setAllCardsHeight] = useState(0)
 	const cardsContainerHeight = 300
 	
+	const [cvData, setCvData] = useState({ 
+	
+						profil:  {
+							avatar: {
+								value: "",
+								placeholder: "./src/assets/user.png"
+							},
+							
+							name: {
+								value: "",
+								placeholder: "Prénom Nom"
+							},
+							
+							jobtitle: {
+								value: "",
+								placeholder: "Job title"
+							},
+							
+							phonenumber: {
+								value: "",
+								placeholder: "01 23 45 67 89"
+							},
+							
+							email: {
+								value: "",
+								placeholder: "adresse@mail.com"
+							},
+						},
+						
+						goal: {
+							value: "",
+							placeholder: "Job title or company name"
+						},
+						
+						intro: {
+							aboutme: {
+								value: "",
+								placeholder: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae harum consectetur commodi nihil id eos necessitatibus. " 
+							},
+							
+							location: {
+								value: "",
+								placeholder: "paris, France"
+							},
+							
+							age: {
+								value: "",
+								placeholder: "23"
+							},
+							
+							spokenlangages: {
+								value: "",
+								placeholder: "english"
+							},
+							
+							mobility: {
+								value: "",
+								placeholder: "remote"
+							},
+							
+							websiteurl: {
+								value: "",
+								placeholder: "www.linkedin.com/in/nomprénom/"
+							},
+						},
+						
+						skills: [],
+						
+						hobbies: [],
+						
+						workExperience: [
+							{
+								title: "",
+								date: "",
+								company: "",
+								tasks: "",
+							},
+						],
+						
+						schoolPath: [
+							{
+								title: "",
+								date: "",
+								school: "",
+							},
+						]
+						
+					})
+	
 	const handleToggleClick	= () => { // is print or 
 		//return
 		
@@ -24,8 +113,54 @@ export default function App() {
 		}
 	}
 	
-	console.log(`total hauteur : ${allCardsHeight}`)
-	console.log(cards)
+	const handleImageChange = (path, value) => {
+		
+   		if (value) {
+						
+			setCvData( (previousState) => {
+				
+				const newState = { ...previousState }
+				let current = newState
+
+				for (let i = 0; i < path.length - 1; i++) {
+					const key = path[i];
+
+					current[key] = { ...current[key] };
+					
+					current = current[key];
+				}
+
+				current[path[path.length - 1]] = URL.createObjectURL(value);
+
+				return newState
+				
+			})
+		}
+	}
+	
+	const handleChange = (path, value) => {
+		
+		setCvData( (previousState) => {
+			
+			const newState = { ...previousState }
+			let current = newState
+
+			for (let i = 0; i < path.length - 1; i++) {
+				const key = path[i];
+
+				current[key] = { ...current[key] };
+				
+				current = current[key];
+			}
+
+			current[path[path.length - 1]] = value;
+
+			return newState
+		})
+	}
+	
+	// console.log(`total hauteur : ${allCardsHeight}`)
+	// console.log(cards)
 	
 	const handleCardHeightChange = (cardKey) => {
 		console.log('handle CardHeightChange')
@@ -102,11 +237,15 @@ export default function App() {
 		
 		{
 			printModeOn ? (
-				<PrintMode>
+				<PrintMode cvData={cvData}>
 			
 				</PrintMode>
 			) : (
-				<EditMode>
+				<EditMode 
+					cvData={cvData} 
+					handleChange={handleChange}
+					handleImageChange={handleImageChange}
+				>
 					
 				</EditMode>
 			)
@@ -173,4 +312,48 @@ export default function App() {
 	</>
 	
 	)
+}
+
+const cv = { 
+	
+	profil:  {
+		avatar: "",
+		name: "",
+		jobTitle: "",
+		phoneNumber: "",
+		email: "",
+	},
+	
+	goal: "",
+	
+	intro: {
+		aboutMe: "",
+		location: "",
+		age: "",
+		spokenLangages: [],
+		mobility: "",
+		websiteUrl: "",
+	},
+	
+	skills: [],
+	
+	hobbies: [],
+	
+	workExperience: [
+		{
+			title: "",
+			date: "",
+			company: "",
+			tasks: "",
+		},
+	],
+	
+	schoolPath: [
+		{
+			title: "",
+			date: "",
+			school: "",
+		},
+	]
+	
 }
