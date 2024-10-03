@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './ToggleButton.css'
 
 export default function ToggleButton({toggleOffText, toggleOnText, toggleOn, handleClick}) {	

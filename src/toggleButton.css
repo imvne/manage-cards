@@ -1,6 +1,5 @@
 .toggleDiv {
-	height: 10vw;
-	width: 50vw;
+	width: 70%;
 	display: flex;
 	align-items: center;
 	/* border: solid 1px rgb(208, 208, 168); */
@@ -18,27 +17,27 @@
 	.text-not-chosen{
 		color: rgb(113, 113, 113);
 		font-weight: 400;
-		font-size: 16px
+		font-size: 1rem
 	}
 	
 	.right-text-chosen{
 		color: rgb(137, 184, 119);
 		font-weight: 500;
-		font-size: 16.5px;
+		font-size: 1.1rem;
 	}
 	
 	.left-text-chosen{
 		color: rgb(100, 100, 156);
 		font-weight: 500;
-		font-size: 16.5px;
+		font-size: 1.1rem;
 	}
 
 .toggle-rectangle{
-	height: 4vw;
-	width: 8vw;
+	height: 1.5rem;
+	width: 3rem;
 	border-radius: 80vw;
 	display: flex;
-	padding: 0.6vw;
+	padding: 0.25rem;
 	transition: background-color 0.3s ease;
 }
 
@@ -53,7 +52,7 @@
 	.toggle-circle{
 		height: 100%;
 		width: 40%;
-		border-radius: 80vw;
+		border-radius: 20rem;
 		background-color: rgb(255, 255, 255);
 		transition: transform 0.3s ease;
 		cursor: pointer;

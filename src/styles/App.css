@@ -54,3 +54,512 @@
 	box-sizing: border-box;
 	resize: vertical;
 }
+
+/* ----------------------------------------- */
+
+/* Repères visuels pour m'aider */
+
+	.cvimage {
+		position: absolute;
+		width: 64vw;
+		height: 90vw;
+		opacity: 0%;
+		top: 11.7vw;
+		left: 18vw;
+	}
+
+
+	.small-notes {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.note-cvbg{
+		color: red;
+	}
+
+	.note-cv{
+		color: blue;
+	}
+
+	.note-cvcol{
+		color: green;
+	}
+
+	.note-cvbox{
+		color: rgb(174, 174, 174);
+	}
+/* --------------------------------------------- */
+
+.cv-background{
+	width: 63.5vw;
+	height: 90vw;
+	box-shadow: 0px 1px 10px rgb(111, 111, 111);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #EAEBEF;
+	/* border: 1px solid red; */
+	margin: 4vw 0vw;
+}
+
+.cv{
+	width: 86%;
+	height: 90%;
+	/* border: 1px dashed blue; */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.cv > * {
+	width: 100%;
+}
+
+.cv-box{
+	background-color: white;
+	border: 0.5px solid rgb(221, 221, 221);
+	border-radius: 0.25rem;
+	margin-bottom: 1.5vw;
+}
+
+p, input, textarea, button {
+	font-family: "Ubuntu", sans-serif;
+}
+
+textarea{
+	outline: none;
+	border: 0px transparent;
+	resize: vertical;
+}
+
+input{
+	outline: none;
+	background-color: transparent;
+	border: 0px transparent;
+}
+
+/* Profil : photo de profil, nom etc */
+
+.profile{
+	height: 16%;
+}
+
+	.profile-infos-1{
+		height: 75%;
+		border-radius: 0.18rem 0.18rem 0rem 0rem;
+		background-color: rgb(129, 171, 173);
+		display: grid;
+		grid-template-columns: 26% 70%;
+		grid-template-rows: 100%;
+		align-items: flex-end;
+	}
+	
+	
+		.profile-picture-container{
+			position: relative;
+			top: 2.2vw;
+			left: 1.8vw;
+			grid-column: 1;
+			grid-row: 1;
+			border: 2px solid white;
+			border-radius: 200vw;
+			width: 10.5vw;
+			height: 10.5vw;
+			background-color: #eaeaea;
+			
+		}
+			.profile-picture{
+				width: 100%;
+			}
+			
+			input#import-profile-picture{
+				opacity: 0;
+				width: 0;
+				height: 0;
+			}
+			
+			button.import-profile-picture{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: 200vw;
+				border: 0px transparent;
+				font-size: 0.8vw;
+				font-weight: 500;
+				color: #878787;
+				cursor: pointer;
+				background-color: transparent;
+			}
+			
+			.profile-picture-edit{
+				opacity: 20%;
+			}
+			
+		
+		.profile-name-and-badges{
+			grid-column: 2;
+			grid-row: 1;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-end;
+			padding-bottom: 1.5vw;
+			justify-content: space-between;
+		}
+		
+			.profile-name{
+				flex-basis: 50%;
+				max-width: 50%;
+				font-size: 1.7vw;
+				font-weight: 500;
+				color: white;
+			}
+			
+			
+			.profile-badge{
+				width: 21.5%;
+				height: 19%;
+				background-color: white;
+				margin: 0.25vw 0.18vw;
+				border-radius: 0.2vw;
+				display: flex;
+				flex-direction: row;
+				font-weight: 500;
+				align-items: center;
+				justify-content: space-between;
+				padding: 0.4vw 0.6vw 0.5vw 0.75vw;
+			}
+			
+			.availability-badge{
+				padding: 0.4vw 0.6vw 0.5vw 0.6vw;
+			}
+			
+				.profile-badge :nth-child(1){
+					color: rgb(69, 69, 69);
+					font-size: 0.75vw;
+				}
+				
+				.profile-badge :nth-child(2){
+					background-color: red;
+					font-size: 0.65vw;
+					border-radius: 0.2vw;
+					padding: 0.1vw 0.2vw 0vw 0.2vw;
+					color: rgb(255, 255, 255);
+				}
+
+		
+	.profile-infos-2{
+		height: 25%;
+		border-radius: 0px 0px 8px 8px;
+		display: flex;
+		justify-content: flex-end;
+	}
+	
+		.profile-icon{
+			grid-column: 2;
+			color: #368cd0;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			padding: 0 1vw;
+			border-left: 0.01vw solid rgb(227, 227, 227);
+		}
+		
+			.profile-icon svg{
+				height: 1.2vw;
+				margin-right: 0.7vw;
+			}
+			
+			.profile-icon .text-icon{
+				font-size: 1vw;
+				font-weight: 600;
+				color: #368cd0
+			}
+/* ------------------------------------------------------------------- */
+			
+/* Objectif : titre d'un poste nom d'une entreprise, d'une mission */
+
+.goal{
+	height: 4%;
+	display: grid;
+	grid-template-columns: 6% 88% 6%;
+}
+
+	.goal-icon{
+		grid-column: 1;
+		height: 2vw;
+		justify-self: center;
+		align-self: center;
+		color: #c6c6c6;
+		padding: 0.1vw;
+		border: 0.005vw solid rgb(205, 205, 205);
+		border-radius: 0.2vw;
+	}
+	
+	.goal-title{
+		width: 100%;
+		grid-column: 2;
+		font-size: 1vw;
+		font-weight: 500;
+		justify-self: center;
+		align-self: center;
+		text-transform: uppercase;
+		text-align: center;
+		color: rgb(21, 21, 21);
+		letter-spacing: 0.05vw;
+	}
+	
+/* ------------------------------------------------------------------- */	
+
+.cv-columns{
+	height: 76%;
+	/* border: 0.5px solid green; */
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+/* Colonne de gauche */
+
+	/* Attributs des titres des carrés de la colonne gauche */
+
+		.title{
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+			margin: 0.3vw 0vw;
+		}
+
+			.title-icon{
+				width: 1.4vw;
+				height: 1.4vw;
+				color: #368cd0;
+			}
+			
+			.title-text{
+				font-size: 1.5vw;
+				font-weight: 600;
+				margin-left: 0.5vw;
+			}
+	/* ----------------------------------------- */
+	
+
+
+	.left-column > *, .right-column > *{
+		padding: 0.4vw 1.1vw;
+	}
+
+	.left-column{
+		height: 90%;
+		width: 35.5%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	/* Intro */
+	
+		.intro{
+			/* min-height: 39%; */
+			display: flex;
+			flex-direction: column ;
+		}
+				
+			.intro-aboutme{
+				display: flex;
+				flex-direction: column;
+			}
+			
+				.intro-aboutme-icon{
+					height: 1.5vw;
+					margin: 0.25vw 0;
+					color: #c5c5c5;
+				}
+				
+				.intro-aboutme-text{
+					font-size: 0.9vw;
+					font-weight: 300;
+					padding: 0.5vw 0vw;
+					color: #a4a4a4;
+					
+				}
+				
+			.intro-line{
+				align-self: center;
+				height: 0.08vw;
+				margin: 0.95vw 0vw;
+				width: 97%;
+				background-color: #d9d9d9;
+			}
+			
+			.intro-informations{
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: flex-start;
+			}
+			
+				.intro-information{
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					margin-bottom: 0.45vw;
+				}
+				
+					.intro-information-icon{
+						width: 1vw;
+						margin: 0 0.5vw;
+						opacity: 50%;
+					}
+					
+					.location .intro-information-icon{
+						width: 0.6vw;
+						margin: 0 0.7vw;
+					}
+					
+					.intro-information-text{
+						font-size: 1vw;
+						text-transform: capitalize;
+						color: #368cd0;
+					}
+				
+			.intro-link{
+				align-self: center;
+				border: 0.5px solid rgb(210, 210, 210);
+				border-radius: 0.5vw;
+				height: 1.7vw;
+				display: flex;
+				flex-direction: row;
+				padding: 0vw 0.3vw;
+				margin: 0.5vw 0vw;
+				align-items: center;
+			}	
+			
+				.intro-link-icon{
+					width: 0.9vw;
+					margin: 0vw 0.2vw;
+					opacity: 30%;
+				}
+			
+				.intro-link-text{
+					font-size: 0.7vw;
+					font-weight: 400;
+					margin-right: 0.2vw;
+					color: #9d9d9d;
+				}
+	/* ------------------------------------------------------------------- */		
+			
+	/* Compétences */
+				
+		.skills{
+			/* height: 24%; */
+			display: flex;
+			flex-direction: column;
+		}
+		
+			.skills-icons{
+				align-self: center;
+				margin: 1.5vw;
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1.4vw 2.6vw;
+			}
+			
+				.skill{
+					border: black 0.2px dashed;
+					width: 3vw;
+					height: 3vw;
+				}
+	/* ------------------------------------------------------------------- */
+			
+	/* Centres d'intéret */		
+		
+		.hobbies{
+			/* height: 31%; */
+			display: flex;
+			flex-direction: column;
+		}
+		
+			.hobbies-images{
+				align-self: center;
+				margin: 1.5vw 0vw 0.5vw 0vw;
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 0.8vw;
+			}
+			
+				.hobbie{
+					border: black 0.2px dashed;
+					width: 5.2vw;
+					height: 5.2vw;
+				}
+	/* -------------------------------------------- */
+	
+/* ---------------------------------------------------------------- */
+			
+/* Colonne de droite */				
+		
+	.right-column{
+		width: 62.5%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	/* Expériences professionnelles */		
+
+		.work-experience{
+			height: 56%;
+		}
+		
+			.work-experience-title{
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+			}
+			
+				.profile-picture-mini{
+					border-radius: 200vw;
+					width: 3vw;
+					height: 3vw;
+					margin: 0.5vw 0;
+				}
+				
+				.work-experience-title p{
+					font-size: 0.97vw;
+					margin-top: 1vw;
+				}
+				
+				.work-experience-title-name{
+					margin-left: 1.1vw;
+					color: #368cd0;
+					font-weight: 600;
+				}
+				
+				.work-experience-title-text{
+					color: #3e3e3e;
+					font-weight: 300;
+				}
+			
+			
+		
+		
+	/* ------------------------------------------------------------------- */
+	
+	/* Parcours scolaire */				
+		
+		.school-path{
+			height: 39.5%;
+		}
+	/* ------------------------------------------------------------------- */
+	
+/* ---------------------------------------------------------------- */
