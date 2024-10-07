@@ -1,8 +1,11 @@
-import { useState } from 'react'
 import './styles/PrintMode.css'
+import './styles/App.css'
+import React from 'react';
 
 export default function PrintMode({cvData}){
 	
+	const workExperiencesBox = document.querySelector('.work-experiences-box')
+	const workExperiencesBoxHeight = workExperiencesBox.getBoundingClientRect().height
 	
 	return (
 	<>	
@@ -44,7 +47,7 @@ export default function PrintMode({cvData}){
 				</div>
 				
 				<div className="profile-infos-2">
-					<div className='profile-icon graduation-icon'>
+					<div className='profile-info graduation-icon'>
 						<svg viewBox="0 -3 24 24" id="meteor-icon-kit__solid-graduation-cap" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 						<path fillRule="evenodd" clipRule="evenodd" d="M0.522074 5.12131C0.549569 5.10633 0.577846 5.09259 0.606828 5.08019L11.1724 0.27766C11.6982 0.03863 12.3018 0.03863 12.8276 0.27766L23.4138 5.08956C24.1954 5.44483 24.1954 6.555 23.4138 6.9103L12.8276 11.7222C12.3018 11.9612 11.6982 11.9612 11.1724 11.7222L2 7.5529V10.4999C2 11.0522 1.55228 11.4999 1 11.4999C0.447715 11.4999 0 11.0522 0 10.4999V5.99993C0 5.98437 0.000355195 5.9689 0.00105792 5.95352C0.015847 5.6237 0.189526 5.3001 0.522074 5.12131zM20 10.462V12.724C20 13.0995 19.8943 13.4675 19.6949 13.7858C18.1427 16.2633 15.5333 17.4999 12 17.4999C8.46671 17.4999 5.85733 16.2633 4.30518 13.7859C4.10583 13.4677 4.00009 13.0998 4 12.7241V10.462L11.1724 13.7222C11.6982 13.9612 12.3018 13.9612 12.8276 13.7222L20 10.462z" fill="currentColor"/>
 						</svg>
@@ -54,7 +57,7 @@ export default function PrintMode({cvData}){
 						</p>
 						
 					</div>
-					<div className='profile-icon phone-icon'>
+					<div className='profile-info phone-icon'>
 						<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path d="M10.0376 5.31617L10.6866 6.4791C11.2723 7.52858 11.0372 8.90532 10.1147 9.8278C10.1147 9.8278 10.1147 9.8278 10.1147 9.8278C10.1146 9.82792 8.99588 10.9468 11.0245 12.9755C13.0525 15.0035 14.1714 13.8861 14.1722 13.8853C14.1722 13.8853 14.1722 13.8853 14.1722 13.8853C15.0947 12.9628 16.4714 12.7277 17.5209 13.3134L18.6838 13.9624C20.2686 14.8468 20.4557 17.0692 19.0628 18.4622C18.2258 19.2992 17.2004 19.9505 16.0669 19.9934C14.1588 20.0658 10.9183 19.5829 7.6677 16.3323C4.41713 13.0817 3.93421 9.84122 4.00655 7.93309C4.04952 6.7996 4.7008 5.77423 5.53781 4.93723C6.93076 3.54428 9.15317 3.73144 10.0376 5.31617Z" fill="currentColor"/>
 						</svg>
@@ -64,7 +67,7 @@ export default function PrintMode({cvData}){
 						</p>
 						
 					</div>
-					<div className='profile-icon mail-icon'>
+					<div className='profile-info mail-icon'>
 						<svg version="1.1" id="_x32_" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xmlSpace="preserve">
 							<g>
 								<polygon className="st0" points="512,295.199 445.92,226.559 512,169.6 	"/>
@@ -81,7 +84,23 @@ export default function PrintMode({cvData}){
 			</div>
 	
 			<div className="goal cv-box">
+				<svg 
+					viewBox="0 0 24 24" 
+					xmlns="http://www.w3.org/2000/svg" 
+					className="goal-icon" 
+					fill="currentColor"
+				>
+					<path 
+					d="M21.92,5.62A1,1,0,0,0,21,5H19V3a1,1,0,0,0-.62-.92,1,1,0,0,0-1.09.21l-3,3A1,1,0,0,0,14,6V8.59l-2.21,2.2a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L15.41,10H18a1,1,0,0,0,.71-.29l3-3A1,1,0,0,0,21.92,5.62Z"
+					/>
+					<path 
+					d="M12,22A10,10,0,0,1,12,2h.42a1,1,0,1,1-.18,2H12a8,8,0,1,0,8,8,1.93,1.93,0,0,0,0-.24,1,1,0,0,1,.91-1.09,1,1,0,0,1,1.09.91c0,.14,0,.28,0,.42A10,10,0,0,1,12,22Zm5.88-8.8a1,1,0,0,0-2-.4A4,4,0,1,1,11.2,8.08a1,1,0,1,0-.4-2,6,6,0,1,0,7.08,7.08Z"
+					/>
+				</svg>
 				
+				<p className="goal-title">
+					{cvData.goal.value === "" ? cvData.goal.placeholder : cvData.goal.value}
+				</p>			
 			</div>
 			
 			<div className="cv-columns">
@@ -140,7 +159,7 @@ export default function PrintMode({cvData}){
 									/>
 								</svg>
 								
-								<p className="intro-information-text">
+								<p className="intro-information-text blue">
 									{cvData.intro.location.value === "" ? cvData.intro.location.placeholder  : cvData.intro.location.value }
 								</p>								
 									
@@ -170,9 +189,13 @@ export default function PrintMode({cvData}){
 									</g>
 								</svg>
 								
-								<p className="intro-information-text">
-									{cvData.intro.age.value === "" ? cvData.intro.age.placeholder  : cvData.intro.age.value }
-								</p>	
+								<div className="intro-information-text">
+									<p className="blue">
+										{cvData.intro.age.value === "" ? cvData.intro.age.placeholder  : cvData.intro.age.value }
+									</p>
+										
+									<p className="gray">&nbsp;years old</p>
+								</div>
 								
 							</div>
 							<div className="intro-information langages">
@@ -189,7 +212,7 @@ export default function PrintMode({cvData}){
 									/>
 								</svg>
 								
-								<p className="intro-information-text">
+								<p className="intro-information-text blue">
 									{cvData.intro.spokenlangages.value === "" ? cvData.intro.spokenlangages.placeholder  : cvData.intro.spokenlangages.value }
 								</p>	
 								
@@ -218,7 +241,7 @@ export default function PrintMode({cvData}){
 									</g>
 								</svg>
 
-								<p className="intro-information-text">
+								<p className="intro-information-text blue">
 									{cvData.intro.mobility.value === "" ? cvData.intro.mobility.placeholder  : cvData.intro.mobility.value }
 								</p>									
 								
@@ -252,14 +275,21 @@ export default function PrintMode({cvData}){
 						
 						<div className="skills-title title">
 							<svg
-								viewBox="0 0 512 512"
-								fill="currentColor"
-								height="1em"
-								width="1em"
-								className='skills-title-icon title-icon'
-							>
-								<path d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm-94.7 32C72.2 320 0 392.2 0 481.3c0 17 13.8 30.7 30.7 30.7h450.6c17 0 30.7-13.8 30.7-30.7 0-89.1-72.2-161.3-161.3-161.3H161.3z" />
+								role="img"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								className='title-icon'
+								>
+								<path
+								fill="none"
+								stroke="currentColor"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth="2"
+								d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0l1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"
+								/>
 							</svg>
+
 							<p className="skills-title-text title-text">Compétences</p>
 
 						</div>
@@ -318,41 +348,116 @@ export default function PrintMode({cvData}){
 				</div>
 				
 				<div className="right-column cv-column">
-					<div className="work-experience cv-box">
+					<div className="work-experiences-box cv-box">
 						
-						<div className="work-experience-title">
+						<div className="work-experiences-title publications-title">
 							
 							<img 
 								src={cvData.profil.avatar.value === "" ? cvData.profil.avatar.placeholder : cvData.profil.avatar.value} 
 								alt="" 
 								className="profile-picture-mini" />
 								
-								<p className="work-experience-title-name">
+								<p className="work-experiences-name publications-profile-name">
 									{cvData.profil.name.value === "" ? cvData.profil.name.placeholder : cvData.profil.name.value}
 								</p>
 								
-								<p className="work-experience-title-text">
+								<p className="work-experiences-title-text publications-title-text">
 									&nbsp;&nbsp;à publié ses expériences professionnelles.
 								</p>
 								
 						</div>
 						
+						{/* <div className="time-strand" style={{height: workExperiencesBoxHeight * 0.53}}></div> */}
+						
+						{
+							cvData.workexperiences.map( workExperience => { return (
+								
+							<div className={`work-experience work-experience-${workExperience.key}`}>
+								<div className="dot-experience">
+									
+								</div>
+								
+								<div className="work-experience-text">
+									
+									<p className="work-experience-title">
+										{workExperience.title.value === "" ? workExperience.title.placeholder : workExperience.title.value }
+									</p>
+									
+									<div className="work-experience-infos">
+										
+										<svg
+											role="img"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											className='experience-duration-icon'
+											fill='currentColor'
+											>
+											<g
+											fill="none"
+											stroke="currentColor"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="2"
+											>
+											<circle cx="12" cy="12" r="10" />
+											<path d="M12 6v6l4 2" />
+											</g>
+										</svg>
+										
+										<p className="work-experience-duration">
+											{workExperience.duration.value === "" ? workExperience.duration.placeholder : workExperience.duration.value }
+										</p>
+										
+										{
+											workExperience.company.value !== "" && 
+											
+											<p className="work-experience-company">
+												{workExperience.company.value}
+											</p>
+										}
+										
+												
+										
+									</div>
+									
+									{
+										workExperience.projects.value !== "" && 
+										
+										<p className="work-experience-projects">
+											{workExperience.projects.value.split('\n').map((item, index) => (
+												<React.Fragment key={index}>
+												{item}
+												<br />
+												</React.Fragment>
+											))}
+										</p>
+									}
+									
+									
+								</div>
+							</div>
+								
+							)		
+								
+							})
+						}
+					
 						
 					</div>
-					<div className="school-path cv-box">
+					<div className="school-path-box cv-box">
 						
-						<div className="work-experience-title">
+						<div className="work-experiences-title publications-title">
 							
 							<img 
 								src={cvData.profil.avatar.value === "" ? cvData.profil.avatar.placeholder : cvData.profil.avatar.value} 
 								alt="" 
 								className="profile-picture-mini" />
 								
-								<p className="work-experience-title-name">
+								<p className="school-path-profile-name publications-profile-name">
 									{cvData.profil.name.value === "" ? cvData.profil.name.placeholder : cvData.profil.name.value}
 								</p>
 								
-								<p className="work-experience-title-text">
+								<p className="school-path-title-text publications-title-text">
 									&nbsp;&nbsp;à publié son parcours scolaire.
 								</p>
 								

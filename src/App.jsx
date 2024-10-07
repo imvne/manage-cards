@@ -1,7 +1,5 @@
 import { useState } from 'react'
 import './styles/App.css'
-import CrossButton from './CrossButton';
-import CardsContainer from './CardsContainer';
 import PrintMode from "./PrintMode"
 import ToggleButton from './toggleButton.jsx';
 import EditMode from './EditMode.jsx';
@@ -56,7 +54,7 @@ export default function App() {
 							
 							location: {
 								value: "",
-								placeholder: "paris, France"
+								placeholder: "Ville, Pays"
 							},
 							
 							age: {
@@ -66,12 +64,12 @@ export default function App() {
 							
 							spokenlangages: {
 								value: "",
-								placeholder: "english"
+								placeholder: "Langage"
 							},
 							
 							mobility: {
 								value: "",
-								placeholder: "remote"
+								placeholder: "Remote"
 							},
 							
 							websiteurl: {
@@ -84,13 +82,7 @@ export default function App() {
 						
 						hobbies: [],
 						
-						workExperience: [
-							{
-								title: "",
-								date: "",
-								company: "",
-								tasks: "",
-							},
+						workexperiences: [
 						],
 						
 						schoolPath: [
@@ -157,6 +149,58 @@ export default function App() {
 
 			return newState
 		})
+	}
+	
+	const handleAddExperienceButton = () => {
+		
+		setCvData( (previousState) => {
+			const newExperience = {
+				key: crypto.randomUUID(),
+				title: {
+					value: "",
+					placeholder: "Poste occupé"
+				},
+				duration: {
+					value: "",
+					placeholder: "Début - Fin"
+				},
+				company: {
+					value: "",
+					placeholder: "Entreprise"
+				},
+				projects: {
+					value: "",
+					placeholder: "My projects..."
+				},
+			};
+			
+			
+			
+			return {...previousState, workexperiences: [...previousState.workexperiences, newExperience]}
+			
+		})
+		
+	}
+	
+	const handleExperienceChange = (thisExperienceKey, infoToChange, value) => {
+		
+		console.log("handleExperienceChange révéillée")
+		setCvData( (previousState) => {
+			const newState = previousState.workexperiences.map((experience) => {
+				
+				return experience.key === thisExperienceKey ? {
+					
+					 ...experience, [infoToChange]: { ...experience[infoToChange], value: value } 
+					
+					}
+					
+					: experience 
+				
+			});
+			
+			return { ...previousState , workexperiences: newState}
+		})
+		
 	}
 	
 	// console.log(`total hauteur : ${allCardsHeight}`)
@@ -245,6 +289,8 @@ export default function App() {
 					cvData={cvData} 
 					handleChange={handleChange}
 					handleImageChange={handleImageChange}
+					handleExperienceChange={handleExperienceChange}
+					handleAddExperienceButton={handleAddExperienceButton}
 				>
 					
 				</EditMode>

@@ -1,8 +1,8 @@
-import { useState } from 'react'
 import './styles/EditMode.css'
+import CrossButton from './CrossButton'
 
-export default function EditMode({cvData, handleChange, handleImageChange}){
-	console.log(cvData.profil.avatar.value)
+export default function EditMode({cvData, handleChange, handleImageChange, handleExperienceChange, handleAddExperienceButton}){
+	console.log(cvData.workexperiences)
 	
 	const handleButtonClick = () => {
 		document.getElementById('import-profile-picture').click()
@@ -40,12 +40,6 @@ export default function EditMode({cvData, handleChange, handleImageChange}){
 							importer une photo
 						</button>
 						
-						
-								
-						
-						
-							
-						
 							
 					</div>
 					
@@ -70,12 +64,12 @@ export default function EditMode({cvData, handleChange, handleImageChange}){
 				</div>
 				
 				<div className="profile-infos-2">
-					<div className='profile-icon graduation-icon'>
+					<div className='profile-info graduation-icon'>
 						<svg viewBox="0 -3 24 24" id="meteor-icon-kit__solid-graduation-cap" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 						<path fillRule="evenodd" clipRule="evenodd" d="M0.522074 5.12131C0.549569 5.10633 0.577846 5.09259 0.606828 5.08019L11.1724 0.27766C11.6982 0.03863 12.3018 0.03863 12.8276 0.27766L23.4138 5.08956C24.1954 5.44483 24.1954 6.555 23.4138 6.9103L12.8276 11.7222C12.3018 11.9612 11.6982 11.9612 11.1724 11.7222L2 7.5529V10.4999C2 11.0522 1.55228 11.4999 1 11.4999C0.447715 11.4999 0 11.0522 0 10.4999V5.99993C0 5.98437 0.000355195 5.9689 0.00105792 5.95352C0.015847 5.6237 0.189526 5.3001 0.522074 5.12131zM20 10.462V12.724C20 13.0995 19.8943 13.4675 19.6949 13.7858C18.1427 16.2633 15.5333 17.4999 12 17.4999C8.46671 17.4999 5.85733 16.2633 4.30518 13.7859C4.10583 13.4677 4.00009 13.0998 4 12.7241V10.462L11.1724 13.7222C11.6982 13.9612 12.3018 13.9612 12.8276 13.7222L20 10.462z" fill="currentColor"/>
 						</svg>
 						
-						<input className="profile-title text-icon" 
+						<input className="profile-job-title text-icon" 
 							
 							type='text'
 							value={cvData.profil.jobtitle.value} 
@@ -83,7 +77,7 @@ export default function EditMode({cvData, handleChange, handleImageChange}){
 							placeholder={cvData.profil.jobtitle.placeholder}/>
 							
 					</div>
-					<div className='profile-icon phone-icon'>
+					<div className='profile-info phone-icon'>
 						<svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 							<path d="M10.0376 5.31617L10.6866 6.4791C11.2723 7.52858 11.0372 8.90532 10.1147 9.8278C10.1147 9.8278 10.1147 9.8278 10.1147 9.8278C10.1146 9.82792 8.99588 10.9468 11.0245 12.9755C13.0525 15.0035 14.1714 13.8861 14.1722 13.8853C14.1722 13.8853 14.1722 13.8853 14.1722 13.8853C15.0947 12.9628 16.4714 12.7277 17.5209 13.3134L18.6838 13.9624C20.2686 14.8468 20.4557 17.0692 19.0628 18.4622C18.2258 19.2992 17.2004 19.9505 16.0669 19.9934C14.1588 20.0658 10.9183 19.5829 7.6677 16.3323C4.41713 13.0817 3.93421 9.84122 4.00655 7.93309C4.04952 6.7996 4.7008 5.77423 5.53781 4.93723C6.93076 3.54428 9.15317 3.73144 10.0376 5.31617Z" fill="currentColor"/>
 						</svg>
@@ -96,7 +90,7 @@ export default function EditMode({cvData, handleChange, handleImageChange}){
 							placeholder={cvData.profil.phonenumber.placeholder}/>
 							
 					</div>
-					<div className='profile-icon mail-icon'>
+					<div className='profile-info mail-icon'>
 						<svg version="1.1" id="_x32_" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xmlSpace="preserve">
 							<g>
 								<polygon className="st0" points="512,295.199 445.92,226.559 512,169.6 	"/>
@@ -199,7 +193,7 @@ export default function EditMode({cvData, handleChange, handleImageChange}){
 									/>
 								</svg>
 
-								<input className="intro-information-text" 
+								<input className="intro-information-text gray" 
 							
 									type='text'
 									value={cvData.intro.location.value} 
@@ -231,7 +225,7 @@ export default function EditMode({cvData, handleChange, handleImageChange}){
 									</g>
 								</svg>
 								
-								<input className="intro-information-text" 
+								<input className="intro-information-text gray" 
 							
 									type='text'
 									value={cvData.intro.age.value} 
@@ -253,7 +247,7 @@ export default function EditMode({cvData, handleChange, handleImageChange}){
 									/>
 								</svg>
 								
-								<input className="intro-information-text" 
+								<input className="intro-information-text gray" 
 								
 									type='text'
 									value={cvData.intro.spokenlangages.value} 
@@ -285,7 +279,7 @@ export default function EditMode({cvData, handleChange, handleImageChange}){
 									</g>
 								</svg>
 
-								<input className="intro-information-text" 
+								<input className="intro-information-text gray" 
 								
 									type='text'
 									value={cvData.intro.mobility.value} 
@@ -324,14 +318,21 @@ export default function EditMode({cvData, handleChange, handleImageChange}){
 						
 						<div className="skills-title title">
 							<svg
-								viewBox="0 0 512 512"
-								fill="currentColor"
-								height="1em"
-								width="1em"
-								className='skills-title-icon title-icon'
-							>
-								<path d="M256 288c79.5 0 144-64.5 144-144S335.5 0 256 0 112 64.5 112 144s64.5 144 144 144zm-94.7 32C72.2 320 0 392.2 0 481.3c0 17 13.8 30.7 30.7 30.7h450.6c17 0 30.7-13.8 30.7-30.7 0-89.1-72.2-161.3-161.3-161.3H161.3z" />
+								role="img"
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 24 24"
+								className='title-icon'
+								>
+								<path
+								fill="none"
+								stroke="currentColor"
+								strokeLinecap="round"
+								strokeLinejoin="round"
+								strokeWidth="2"
+								d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0l1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"
+								/>
 							</svg>
+							
 							<p className="skills-title-text title-text">Compétences</p>
 
 						</div>
@@ -389,27 +390,107 @@ export default function EditMode({cvData, handleChange, handleImageChange}){
 				</div>
 				
 				<div className="right-column cv-column">
-					<div className="work-experience cv-box">
+					<div className="work-experiences-box cv-box">
 						
-						<div className="work-experience-title">
+						<div className="work-experiences-title publications-title">
 							
 							<img 
 								src={cvData.profil.avatar.value === "" ? cvData.profil.avatar.placeholder : cvData.profil.avatar.value} 
 								alt="" 
 								className="profile-picture-mini" />
 								
-								<p className="work-experience-title-name">
+								<p className="work-experiences-name publications-profile-name">
 									{cvData.profil.name.value === "" ? cvData.profil.name.placeholder : cvData.profil.name.value}
 								</p>
 								
-								<p className="work-experience-title-text">
+								<p className="work-experiences-title-text publications-title-text">
 									&nbsp;&nbsp;à publié ses expériences professionnelles.
 								</p>
 								
 						</div>
 						
+						{
+							cvData.workexperiences.map( workExperience => { return (
+								
+							<div className={`work-experience work-experience-${workExperience.key}`}>
+								<div className="dot-experience"></div>
+								
+								<div className="work-experience-text">
+									<input className="work-experience-title" 
+								
+										type='text'
+										value={workExperience.title.value} 
+										onChange={(event) => {console.log("hello handleExp"), handleExperienceChange(workExperience.key, "title", event.target.value)}} 
+										placeholder={workExperience.title.placeholder}/>
+									
+									<div className="work-experience-infos">
+										
+										<svg
+											role="img"
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24"
+											className='experience-duration-icon'
+											fill='currentColor'
+											>
+											<g
+											fill="none"
+											stroke="currentColor"
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth="2"
+											>
+											<circle cx="12" cy="12" r="10" />
+											<path d="M12 6v6l4 2" />
+											</g>
+										</svg>
+										
+										<input className="work-experience-duration" 
+								
+											type='text'
+											value={workExperience.duration.value} 
+											onChange={(event) => {handleExperienceChange(workExperience.key, "duration", event.target.value)}} 
+											placeholder={workExperience.duration.placeholder}/>
+											
+										<input className="work-experience-company" 
+							
+											type='text'
+											value={workExperience.company.value} 
+											onChange={(event) => {handleExperienceChange(workExperience.key, "company", event.target.value)}} 
+											placeholder={workExperience.company.placeholder}/>
+												
+										
+									</div>
+									
+									<textarea className="work-experience-projects"
+						
+										type='text'
+										value={workExperience.projects.value} 
+										onChange={(event) => {handleExperienceChange(workExperience.key, "projects", event.target.value)}} 
+										placeholder={workExperience.projects.placeholder}/>
+									
+									
+								</div>
+							</div>
+								
+							)
+									
+									
+									
+								
+							})
+						}
+						
+							
+						
+						<CrossButton
+							id={"add-experience-button"} // + add-button
+							addOrDeleteStyle={"add"}
+							buttonSize={"2vw"}
+							handleOnClick={handleAddExperienceButton}
+						/>
+						
 					</div>
-					<div className="school-path cv-box"></div>
+					<div className="school-path-box cv-box"></div>
 				</div>
 			</div>
 		</div>
